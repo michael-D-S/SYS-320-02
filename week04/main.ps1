@@ -1,6 +1,18 @@
 ﻿# Uses dot notation to call functions
 
 # Load the functions using PSScriptRoot
+. "$PSScriptRoot\Parsing-logs.ps1"
+
+# Check if access.log exists, if not create sample data
+if (-not (Test-Path "access.log")) {
+    Write-Host "`nNo access.log found. Creating sample log file..." -ForegroundColor Yellow
+    New-SampleApacheLog -LogPath "access.log"
+}
+
+# Note about 10.* network filtering
+Write-Host "`nNote: This analysis filters for IPs in the 10.* network range only" -ForegroundColor Cyan
+
+# Load the functions using PSScriptRoot
 . "$PSScriptRoot\Apache-Logs.ps1"
 
 Write-Host "=== SYS-320 Apache Log Analysis ===" -ForegroundColor Green
