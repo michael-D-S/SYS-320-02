@@ -1,0 +1,13 @@
+/bin/bash
+/admin/
+/phpmyadmin/
+/.env
+/wp-admin/
+/config.php
+/shell.php
+/backup.sql
+/xmlrpc.php
+/wp-login.php
+/.git/
+/admin.php
+/login.php
